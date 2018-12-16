@@ -1,0 +1,11 @@
+stages:
+  - tests
+
+unit_and_integration_tests:
+  image: python:3.7-alpine3.7
+  stage: tests
+  before_script:
+    - pip install pipenv
+    - pipenv install --dev
+  script:
+    - pipenv run python -m pytest tests/
