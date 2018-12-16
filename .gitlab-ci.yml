@@ -6,6 +6,6 @@ unit_and_integration_tests:
   stage: tests
   before_script:
     - pip install pipenv
-    - pipenv install
+    - pipenv install --dev
   script:
     - pipenv run python -m pytest tests/
