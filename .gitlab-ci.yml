@@ -4,9 +4,6 @@ stages:
 unit_and_integration_tests:
   image: docker/docker-latest
   stage: tests
-  tags:
-    - docker
-    - gitlab-org
   before_script:
     - pip install pipenv
     - pipenv install
