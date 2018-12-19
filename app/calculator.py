@@ -124,7 +124,7 @@ def divide(dividend, divisor):
         raise TypeError(f"{dividend} is not an integer or float")
     if not isinstance(divisor, (int, float)):
         raise TypeError(f"{divisor} is not an integer or float")
-    if divisor == 0:
+    if divisor == 0 or divisor == 0.0:
         raise ZeroDivisionError(f"Trying to divide by {divisor}")
 
     quotient = 0
@@ -161,7 +161,7 @@ def modulus(dividend, divisor):
         raise TypeError(f"{dividend} is not an integer or float")
     if not isinstance(divisor, (int, float)):
         raise TypeError(f"{divisor} is not an integer or float")
-    if divisor == 0:
+    if divisor == 0 or divisor == 0.0:
         raise ZeroDivisionError(f"Trying to divide by {divisor}")
 
     quotient = 0
