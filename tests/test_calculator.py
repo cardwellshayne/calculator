@@ -7,6 +7,8 @@
     Description: A Testing module to test the Calculator class
 """
 import unittest
+from .context import app
+
 from app.calculator import add
 from app.calculator import subtract
 from app.calculator import multiply
