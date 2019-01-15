@@ -8,4 +8,4 @@ unit_and_integration_tests:
     - pip install pipenv
     - pipenv install --dev
   script:
-    - pipenv run python -m pytest tests/
+    - pipenv run pytest tests
