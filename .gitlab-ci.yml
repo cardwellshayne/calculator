@@ -18,7 +18,7 @@ deploy_to_github:
   only:
     - master
   before_script:
-    - 'which ssh-agent || ( apk add --update --no-cache openssh )'
+    - 'which ssh-agent || ( apk add --update --no-cache openssh git )'
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
     - mkdir -p ~/.ssh
