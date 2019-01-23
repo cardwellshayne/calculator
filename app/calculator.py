@@ -34,17 +34,17 @@ def add(augend, addend):
     return augend + addend
 
 
-def subtract(subtrahend, minuend):
+def subtract(minuend, subtrahend):
     """Subtracts minuend from subtrahend
 
     This function subtracts minuend from subtrahend only when they are
     either integers or floats
 
     Args:
-        subtrahend(int/float): The quantity or number to be subtracted
-            from another
         minuend(int/float): The quantity or number from which another
             is to be subtracted
+        subtrahend(int/float): The quantity or number to be subtracted
+            from another
 
     >>> subtract(10, 6)
     4
@@ -60,7 +60,7 @@ def subtract(subtrahend, minuend):
     if not isinstance(minuend, (int, float)):
         raise TypeError(f"{minuend} is not an integer or float")
 
-    return subtrahend - minuend
+    return minuend - subtrahend
 
 
 def multiply(multiplicand, multiplier):
@@ -124,7 +124,7 @@ def divide(dividend, divisor):
         raise TypeError(f"{dividend} is not an integer or float")
     if not isinstance(divisor, (int, float)):
         raise TypeError(f"{divisor} is not an integer or float")
-    if divisor == 0:
+    if divisor == 0 or divisor == 0.0:
         raise ZeroDivisionError(f"Trying to divide by {divisor}")
 
     quotient = 0
@@ -161,7 +161,7 @@ def modulus(dividend, divisor):
         raise TypeError(f"{dividend} is not an integer or float")
     if not isinstance(divisor, (int, float)):
         raise TypeError(f"{divisor} is not an integer or float")
-    if divisor == 0:
+    if divisor == 0 or divisor == 0.0:
         raise ZeroDivisionError(f"Trying to divide by {divisor}")
 
     quotient = 0
