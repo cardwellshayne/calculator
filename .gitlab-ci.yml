@@ -29,6 +29,4 @@ deploy_to_github:
     - git config --global user.name "cardwellshayne"
   script:
     - git remote add git_origin $SSH_PROJECT_URL
-    - git add *
-    - git commit -m "auto update to git hub"
     - git push -u git_origin master
