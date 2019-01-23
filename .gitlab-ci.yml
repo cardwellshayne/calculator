@@ -1,5 +1,6 @@
 stages:
   - tests
+  - deploy
 
 unit_and_integration_tests:
   image: python:3.7-alpine3.7
@@ -10,3 +11,24 @@ unit_and_integration_tests:
     - pipenv install
   script:
     - pipenv run pytest tests
+
+deploy_to_github:
+  image: python:3.7-alpine3.7
+  stage: deploy
+  only:
+    - master
+  before_script:
+    - 'which ssh-agent || ( apk add --update --no-cache openssh )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan github.com >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - git config --global user.email "cardwellshayne@gmail.com"
+    - git config --global user.name "cardwellshayne"
+  script:
+    - git remote add git_origin $SSH_PROJECT_URL
+    - git add *
+    - git commit -m "auto update to git hub"
+    - git push -u git_origin master
