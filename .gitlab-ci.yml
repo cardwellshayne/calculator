@@ -29,4 +29,5 @@ deploy_to_github:
     - git config --global user.name "cardwellshayne"
   script:
     - git remote add git_origin $SSH_PROJECT_URL
+    - git fetch --all
     - git push git_origin HEAD:dev
