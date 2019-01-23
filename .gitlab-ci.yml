@@ -30,4 +30,4 @@ deploy_to_github:
   script:
     - git remote add git_origin $SSH_PROJECT_URL
     - git fetch --all
-    - git push -f git_origin dev
+    - git push -f git_origin HEAD:dev
