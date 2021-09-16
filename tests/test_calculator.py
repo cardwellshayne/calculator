@@ -146,6 +146,42 @@ class MyCalculatorTest(unittest.TestCase):
     def test_modulus_float_remainder(self):
         """Validates that add yields the expected results"""
         self.assertEqual(calculator.modulus(5.0, 2.0), 1.0)
+    
+    def test_power_non_int_non_float_exception(self):
+        """Validates that an exception raises when adding strings"""
+        data_sets = [[], '', {}]
+        for data_set in data_sets:
+            with self.assertRaises(TypeError):
+                calculator.power(data_set, data_set)
+
+    def test_power_integer_multiplication(self):
+        """Validates that power yields the expected results"""
+        self.assertEqual(calculator.power(2, 3), 8)
+
+    def test_power_integer_multiplication_2(self):
+        """Validates that power yields the expected results"""
+        self.assertEqual(calculator.power(3, 3), 27)
+
+    def test_power_integer_multiplication_3(self):
+        """Validates that power yields the expected results"""
+        self.assertEqual(calculator.power(2, 2), 4)
+
+    def test_power_integer_multiplication_4(self):
+        """Validates that power yields the expected results"""
+        self.assertEqual(calculator.power(3, 2), 9)
+
+    def test_power_integer_multiplication_5(self):
+        """Validates that power yields the expected results"""
+        self.assertEqual(calculator.power(5, 7), 78125)
+
+    def test_power_integer_zero_exponent(self):
+        """Validates that power yields the expected results"""
+        self.assertEqual(calculator.power(6, 0), 1)
+
+    def test_power_float_zero_base(self):
+        """Validates that power yields the expected results"""
+        print(calculator.power(0, 3))
+        self.assertEqual(calculator.power(0, 3), 0)
 
 
 if __name__ == '__main__':

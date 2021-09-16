@@ -89,6 +89,11 @@ def multiply(multiplicand, multiplier):
     if not isinstance(multiplier, (int, float)):
         raise TypeError(f"{multiplier} is not an integer or float")
 
+    if multiplicand is None:
+        multiplicand = 0
+    if multiplier is None:
+        multiplier = 0
+
     product = 0
     list_multiplier = []
     for num in range(multiplier):
@@ -171,3 +176,38 @@ def modulus(dividend, divisor):
         quotient += 1
 
     return remainder
+
+
+def power(base, exponent):
+    """Raises the base to the power of the exponent.
+
+    This function raises the base to the power of the exponent.
+
+    Args:
+        base(int): The number to be raised by the exponent
+        exponent(int): The number by which the base has been risen
+
+    >>>power(3, 2)
+    9
+
+    Returns:
+        The result of the base raised to the power of the exponent.
+    Raises:
+        TypeError if the base or exponent is neither an integer
+    """
+    if not isinstance(base, int):
+        raise TypeError(f"{base} is not an integer")
+    if not isinstance(exponent, int):
+        raise TypeError(f"{exponent} is not an integer")
+
+    if exponent < 1:
+        base = 1
+
+    product = 1
+    list_multiplier = []
+    for num in range(exponent):
+        list_multiplier.append(base)
+
+    while list_multiplier:
+        product = multiply(product, list_multiplier.pop())
+    return product
